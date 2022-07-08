@@ -8,7 +8,9 @@ import { appRouter } from "./trpc/server";
 const app = express();
 dotenv.config();
 
-app.use(cors({ origin: ["http://localhost:3000"] }));
+app.use(
+  cors({ origin: [process.env.ALLOW_ORIGIN || "http://localhost:3000"] })
+);
 
 app.use(
   "/trpc",
